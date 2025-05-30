@@ -1,18 +1,23 @@
-Laporan Antrian Bank
-Dicetak pada: 2025-05-30 15:32:05
+Laporan Antrian Bank MABSkuy
+Dicetak pada: 2025-05-30 17:55:41
 
-No.   Nama                      Username             Waktu Masuk         
--------------------------------------------------------------------------------
-1     apip ramdani              apipgaming           2025-05-30 15:30:48 
-2     devin aryanto             devinxy              2025-05-30 15:30:48 
-3     tiara anggraini           tiara22              2025-05-30 15:30:48 
-4     andika zulkarnain         andikz1              2025-05-30 15:30:48 
-5     yulia septiani            yuliax3              2025-05-30 15:30:48 
-6     wulan sari                wulan13              2025-05-30 15:30:48 
-7     syaikhani giffa i         giffa                2025-05-30 15:30:48 
-8     3                         3                    2025-05-30 15:30:48 
-9     Dani                      Dani                 2025-05-30 15:30:48 
-10    wulan                     wulan                2025-05-30 15:30:48 
-11    dika aprilio              dika01               2025-05-30 15:30:48 
-12    kayla putri               kayla29              2025-05-30 15:32:04 
--------------------------------------------------------------------------------
+No.   Nama                      Username             Waktu Masuk
+-------------------------------------------------------------------------
+1     apip ramdani              apipgaming           2025-05-30 17:54:18
+2     devin aryanto             devinxy              2025-05-30 17:54:18
+3     tiara anggraini           tiara22              2025-05-30 17:54:18
+4     andika zulkarnain         andikz1              2025-05-30 17:54:18
+5     yulia septiani            yuliax3              2025-05-30 17:54:18
+6     wulan sari                wulan13              2025-05-30 17:54:18
+7     syaikhani giffa i         giffa                2025-05-30 17:54:18
+8     3                         3                    2025-05-30 17:54:18
+9     Dani                      Dani                 2025-05-30 17:54:18
+10    wulan                     wulan                2025-05-30 17:54:18
+11    kayla putri               kayla29              2025-05-30 17:54:18
+12    dika aprilio              dika01               2025-05-30 17:54:58
+13    user zumar                user                 2025-05-30 17:55:34
+-------------------------------------------------------------------------
+
+
+Catatan Pribadi Pengguna:
+ANDA DI POSISI 13 DARI 13 ORANG!
