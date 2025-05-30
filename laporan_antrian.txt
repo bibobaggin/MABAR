@@ -1,0 +1,18 @@
+Laporan Antrian Bank
+Dicetak pada: 2025-05-30 15:32:05
+
+No.   Nama                      Username             Waktu Masuk         
+-------------------------------------------------------------------------------
+1     apip ramdani              apipgaming           2025-05-30 15:30:48 
+2     devin aryanto             devinxy              2025-05-30 15:30:48 
+3     tiara anggraini           tiara22              2025-05-30 15:30:48 
+4     andika zulkarnain         andikz1              2025-05-30 15:30:48 
+5     yulia septiani            yuliax3              2025-05-30 15:30:48 
+6     wulan sari                wulan13              2025-05-30 15:30:48 
+7     syaikhani giffa i         giffa                2025-05-30 15:30:48 
+8     3                         3                    2025-05-30 15:30:48 
+9     Dani                      Dani                 2025-05-30 15:30:48 
+10    wulan                     wulan                2025-05-30 15:30:48 
+11    dika aprilio              dika01               2025-05-30 15:30:48 
+12    kayla putri               kayla29              2025-05-30 15:32:04 
+-------------------------------------------------------------------------------
