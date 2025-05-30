@@ -1,12 +1,13 @@
 # main.py
 from auth import register, login_auth
-from features import Antrian
+from features import Antrian # Antrian class from features.py
 from logger import tampilkan_audit_log, log_activity
-from utils import USER_DB, get_display_name
+from utils import get_display_name
 
-def user_menu(antrian, username, display_name,role):
+# USER MENU
+def user_menu(antrian_instance, current_username, current_display_name, current_role):
     while True:
-        print(f"\nMenu User — {display_name}:")
+        print(f"\nMenu User — {current_display_name}:")
         print("1. Cek Antrian")
         print("2. Masuk ke Antrean")
         print("3. Keluar dari Antrean")
@@ -15,148 +16,152 @@ def user_menu(antrian, username, display_name,role):
         choice = input("Pilih aksi (1-5): ")
 
         if choice == '1':
-            antrian.cek_antrian()
+            antrian_instance.cek_antrian()
+            log_activity(current_username, current_role, "Melihat antrian (user)")
         elif choice == '2':
-            antrian.masuk_ke_antrean(username)
+            # current_username wants to enter the queue themselves
+            antrian_instance.masuk_ke_antrean(current_username, actor_username=current_username, actor_role=current_role)
         elif choice == '3':
-            antrian.keluar_dari_antrean(username)
+            antrian_instance.keluar_dari_antrean(current_username, actor_username=current_username, actor_role=current_role)
         elif choice == '4':
-            antrian.cetak_antrian()
+            antrian_instance.cetak_antrian()
+            # Logging for this action can be added if desired, e.g.:
+            log_activity(current_username, current_role, "Mencetak laporan antrian")
         elif choice == '5':
-            log_activity(username, role, "Logout")
+            log_activity(current_username, current_role, "Logout")
             break
         else:
             print("Pilihan tidak valid!")
 
-
-def teller_menu(antrian, username, display_name, role):
+# TELLER MENU
+def teller_menu(antrian_instance, current_username, current_display_name, current_role):
     while True:
         print("\nMenu Teller:")
         print("1. Lihat Antrian Saat Ini")
         print("2. Proses Pengguna yang Antre")
-        print("3. Tambah Prioritas ke Pengguna Antrean")
-        print("4. Keluar")
-        choice = input("Pilih aksi (1-4): ")
+        print("3. Tambah Prioritas ke Pengguna Antre")
+        print("4. Cari Pengguna")
+        print("5. Logout")
+        choice = input("Pilih aksi (1-5): ")
 
         if choice == '1':
-            antrian.cek_antrian()
+            antrian_instance.cek_antrian()
+            log_activity(current_username, current_role, "Melihat antrian (teller)")
         elif choice == '2':
-            if antrian.antrian.is_empty():
-                print("Tidak ada pengguna dalam antrean.")
-            else:
-                nama = antrian.antrian.dequeue()
-                print(f"Pengguna {nama} telah diproses dan dikeluarkan dari antrean.")
-                antrian.save_antrian()
-                log_activity(nama, get_display_name(nama), "Diproses oleh teller")
+            antrian_instance.proses_antrean_berikutnya(actor_username=current_username, actor_role=current_role)
         elif choice == '3':
-            if antrian.antrian.is_empty():
-                print("Tidak ada pengguna dalam antrean.")
+            user_to_prioritize = input("Masukkan username pengguna yang ingin diberi prioritas: ").strip()
+            if user_to_prioritize:
+                antrian_instance.masuk_prioritas(user_to_prioritize, actor_username=current_username, actor_role=current_role)
             else:
-                nama = input("Masukkan nama pengguna yang akan diberi prioritas: ")
-                current = antrian.antrian.front
-                found = False
-                while current:
-                    if current.data == nama:
-                        found = True
-                        break
-                    current = current.next
-                if found:
-                    antrian.keluar_dari_antrean(nama)
-                    antrian.masuk_prioritas(nama)
-                else:
-                    print(f"{nama} tidak ditemukan dalam antrean.")
+                print("Username tidak boleh kosong.")
         elif choice == '4':
-            log_activity(username, role, "Logout")
+            user_to_find = input("Masukkan username pengguna yang ingin dicari: ").strip()
+            if user_to_find:
+                antrian_instance.cari_nama_orang_antre(user_to_find)
+                # Logging for search action
+                log_activity(current_username, current_role, "Mencari pengguna", f"Target pencarian: {user_to_find}")
+            else:
+                print("Username tidak boleh kosong.")
+        elif choice == '5':
+            log_activity(current_username, current_role, "Logout")
             break
         else:
             print("Pilihan tidak valid!")
 
-def admin_menu(antrian,admin_username,admin_display_name,role):
+# ADMIN MENU
+def admin_menu(antrian_instance, current_username, current_display_name, current_role):
     while True:
-        print("\nMenu Admin:")
-        print("1. Lihat/Cetak Antrian")
-        print("2. Modifikasi Antrean")
-        print("3. Import Antrean")
-        print("4. Export Antrean")
-        print("5. Cari Nama Orang yang Antre")
-        print("6. Update Antrean (Tukar Urutan)")
-        print("7. Keluar")
-        print("8. Tampilkan Audit Log")
-        choice = input("Pilih aksi (1-7): ")
+        print(f"\nMenu Admin — {current_display_name}:")
+        print("1. Lihat Antrian Saat Ini")
+        print("2. Tambah Pengguna ke Antrean (Manual)")
+        print("3. Hapus Pengguna dari Antrean (Manual)")
+        print("4. Proses Antrean Berikutnya")
+        print("5. Tukar Posisi Antrean")
+        print("6. Tambah Prioritas ke Pengguna Antre")
+        print("7. Tampilkan Audit Log")
+        print("8. Logout")
+
+        choice = input("Pilih aksi (1-8): ")
 
         if choice == '1':
-            antrian.cetak_antrian()
+            antrian_instance.cek_antrian()
+            log_activity(current_username, current_role, "Melihat antrian (admin)")
         elif choice == '2':
-            try:
-                index = int(input("Masukkan index antrean yang ingin dihapus: ")) - 1
-                antrian.modifikasi_antrean(index,admin_username,admin_display_name)
-            except ValueError:
-                print("Masukkan harus berupa angka!")
+            user_to_add = input("Masukkan username pengguna yang ingin ditambahkan ke antrean: ").strip()
+            if user_to_add:
+                antrian_instance.masuk_ke_antrean(user_to_add, actor_username=current_username, actor_role=current_role)
+            else:
+                print("Username tidak boleh kosong.")
         elif choice == '3':
-            data = input("Masukkan data antrean (pisahkan dengan koma): ").split(",")
-            cleaned_data = [x.strip() for x in data]
-            antrian.import_antrean(cleaned_data)
+            user_to_remove = input("Masukkan username pengguna yang ingin dihapus dari antrean: ").strip()
+            if user_to_remove:
+                antrian_instance.keluar_dari_antrean(user_to_remove, actor_username=current_username, actor_role=current_role)
+            else:
+                print("Username tidak boleh kosong.")
         elif choice == '4':
-            antrian.export_antrean()
+            antrian_instance.proses_antrean_berikutnya(actor_username=current_username, actor_role=current_role)
         elif choice == '5':
-            nama = input("Masukkan nama yang dicari: ")
-            antrian.cari_nama_orang_antre(nama)
-        elif choice == '6':
-            # 1) Ambil string input dulu
-            s1 = input("Masukkan index pertama: ")
-            s2 = input("Masukkan index kedua: ")
-            # 2) Coba parsing angka saja
             try:
-                idx1 = int(s1) - 1
-                idx2 = int(s2) - 1
+                idx1_str = input("Masukkan indeks pengguna pertama (mulai dari 0): ").strip()
+                idx2_str = input("Masukkan indeks pengguna kedua (mulai dari 0): ").strip()
+                if not idx1_str or not idx2_str:
+                    print("Indeks tidak boleh kosong.")
+                else:
+                    idx1 = int(idx1_str)
+                    idx2 = int(idx2_str)
+                    antrian_instance.update_antrean(idx1, idx2, actor_username=current_username, actor_role=current_role)
             except ValueError:
-                print("Masukkan harus berupa angka!")
-                continue   # langsung kembali ke menu, tanpa update_antrean
-            # 3) Parsing sukses, tinggal swap
-            antrian.update_antrean(idx1, idx2, admin_username, admin_display_name)
-
+                print("Indeks harus berupa angka.")
+            except Exception as e:
+                print(f"Terjadi kesalahan saat menukar posisi: {e}")
+        elif choice == '6':
+            user_to_prioritize = input("Masukkan username pengguna yang ingin diberi prioritas: ").strip()
+            if user_to_prioritize:
+                antrian_instance.masuk_prioritas(user_to_prioritize, actor_username=current_username, actor_role=current_role)
+            else:
+                print("Username tidak boleh kosong.")
         elif choice == '7':
-            log_activity(admin_username, role, "Logout")
-
-            break
-        elif choice == '8':
             tampilkan_audit_log()
-
-
+            # Log this action as well
+            log_activity(current_username, current_role, "Menampilkan audit log")
+        elif choice == '8':
+            log_activity(current_username, current_role, "Logout")
+            break
         else:
             print("Pilihan tidak valid!")
 
 
 def main():
     file_choice = input("Pilih format file antrean (1 = TXT, 2 = CSV): ")
-    antrian = Antrian("antrian.txt") if file_choice == '1' else Antrian("antrian.csv")
+    queue_system = Antrian("antrian.txt") if file_choice == '1' else Antrian("antrian.csv")
 
     while True:
         print("\n=== Selamat Datang di Sistem Manajemen Antrian Bank ===")
         print("1. Login")
         print("2. Registrasi")
         print("3. Keluar")
-        menu = input("Pilih menu: ")
+        menu_choice = input("Pilih menu: ")
 
-        if menu == '1':
-            result = login_auth()
-            if result:
-                username, display_name, role = result
-                if role == "user":
-                    user_menu(antrian, username, display_name,role)
-                elif role == "teller":
-                    teller_menu(antrian, username, display_name, role)
-                elif role == "admin":
-                    admin_menu(antrian, username, display_name,role)
-
-        elif menu == '2':
+        if menu_choice == '1':
+            login_result = login_auth()
+            if login_result:
+                logged_username, logged_display_name, logged_role = login_result
+                if logged_role == "user":
+                    user_menu(queue_system, logged_username, logged_display_name, logged_role)
+                elif logged_role == "teller":
+                    teller_menu(queue_system, logged_username, logged_display_name, logged_role)
+                elif logged_role == "admin":
+                    admin_menu(queue_system, logged_username, logged_display_name, logged_role)
+        elif menu_choice == '2':
             register()
-        elif menu == '3':
-            log_activity(username, role, "Logout")
+        elif menu_choice == '3':
+            # FIX APPLIED HERE: Log a generic system exit.
+            log_activity("system", "N/A", "Aplikasi ditutup dari menu utama")
+            print("Terima kasih telah menggunakan sistem kami.")
             break
         else:
             print("Pilihan tidak valid!")
-
 
 if __name__ == "__main__":
     main()
