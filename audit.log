@@ -1,0 +1,79 @@
+[2025-05-27 20:07:31] Dika (-) - Login gagal: 
+[2025-05-27 20:10:16] dika01 (user) - Registrasi: Role=user
+[2025-05-27 20:10:51] dika02 (user) - Registrasi: Role=user
+[2025-05-27 20:10:57] dika01 (user) - Login sukses: 
+[2025-05-27 20:11:00] dika01 (dika aprilio) - Masuk ke antrean: 
+[2025-05-27 20:11:22] dika01 (user) - Logout: 
+[2025-05-27 20:11:25] dika02 (user) - Login sukses: 
+[2025-05-27 20:11:28] dika02 (diki aldino) - Masuk ke antrean: 
+[2025-05-27 20:24:25] dika02 (user) - Logout: 
+[2025-05-27 20:24:30] dika01 (user) - Login sukses: 
+[2025-05-27 20:26:39] dika01 (dika aprilio) - Keluar dari antrean: 
+[2025-05-27 20:26:54] dika01 (dika aprilio) - Masuk ke antrean: 
+[2025-05-27 20:30:23] dika01 (user) - Login sukses: 
+[2025-05-27 20:30:47] dika01 (user) - Logout: 
+[2025-05-27 20:31:16] dikateller (teller) - Login sukses: 
+[2025-05-27 20:31:47] dika01 (dika aprilio) - Diproses oleh teller: 
+[2025-05-27 20:32:19] silva77 (silva maulida) - Keluar dari antrean: 
+[2025-05-27 20:32:19] silva77 (silva maulida) - Diberi prioritas: 
+[2025-05-27 20:32:29] dikateller (teller) - Logout: 
+[2025-05-27 20:32:32] dikateller (teller) - Logout: 
+[2025-05-27 20:33:52] giffa (user) - Registrasi: Role=user
+[2025-05-27 20:33:59] giffa (user) - Login sukses: 
+[2025-05-27 20:34:07] giffa (syaikhani giffa i) - Masuk ke antrean: 
+[2025-05-27 20:34:33] giffa (syaikhani giffa i) - Keluar dari antrean: 
+[2025-05-27 20:34:40] giffa (syaikhani giffa i) - Masuk ke antrean: 
+[2025-05-27 20:34:55] giffa (user) - Logout: 
+[2025-05-27 20:35:09] giptel (teller) - Registrasi: Role=teller
+[2025-05-27 20:35:14] giptel (-) - Login gagal: 
+[2025-05-27 20:35:30] giptel (teller) - Login sukses: 
+[2025-05-27 20:35:41] silva77 (silva maulida) - Diproses oleh teller: 
+[2025-05-27 20:36:11] reza_gm (reza gumilang) - Keluar dari antrean: 
+[2025-05-27 20:36:11] reza_gm (reza gumilang) - Diberi prioritas: 
+[2025-05-27 20:36:21] giptel (teller) - Logout: 
+[2025-05-27 20:36:42] giffa (admin) - Registrasi: Role=admin
+[2025-05-27 20:36:48] giffa (admin) - Login sukses: 
+[2025-05-27 20:37:32] giffa (admin) - Login sukses: 
+[2025-05-27 20:38:32] giffa (giffaadmin) - Tukar urutan: reza gumilang (reza_gm) <-> abid sudrajat (abissd1): 
+[2025-05-27 20:38:59] giffa (admin) - Logout: 
+[2025-05-27 20:39:24] bayu (-) - Login gagal: 
+[2025-05-27 20:39:30] bayu08 (user) - Login sukses: 
+[2025-05-27 20:39:39] bayu08 (bayu nugraha) - Keluar dari antrean: 
+[2025-05-27 20:47:08] bayu08 (user) - Logout: 
+[2025-05-27 20:47:15] giffa (admin) - Login sukses: 
+[2025-05-27 20:48:12] giffa (admin) - Login sukses: 
+[2025-05-27 20:49:54] giffa (-) - Login gagal: 
+[2025-05-27 20:50:00] giffa (admin) - Login sukses: 
+[2025-05-27 20:50:02] giffa (giffaadmin) - Hapus antrean di posisi 2: kayla putri (kayla29)
+[2025-05-27 21:07:48] dika01 (user) - Login sukses: 
+[2025-05-27 21:09:53] dika01 (user) - Login sukses: 
+[2025-05-27 21:10:30] dika01 (user) - Logout: 
+[2025-05-27 21:14:48] dika01 (user) - Logout: 
+[2025-05-27 21:15:11] dika01 (user) - Login sukses: 
+[2025-05-27 21:24:29] dika01 (user) - Login sukses: 
+[2025-05-27 21:25:17] dika01 (dika aprilio) - Masuk ke antrean: 
+[2025-05-27 21:25:38] dika01 (dika aprilio) - Keluar dari antrean: 
+[2025-05-27 21:28:05] dika01 (user) - Logout: 
+[2025-05-27 21:28:31] ekishin (teller) - Registrasi: Role=teller
+[2025-05-27 21:28:43] Eki Shinta (-) - Login gagal: 
+[2025-05-27 21:28:53] ekishin (teller) - Login sukses: 
+[2025-05-27 21:29:03] reza_gm (reza gumilang) - Diproses oleh teller: 
+[2025-05-27 21:29:25] devinxy (devin aryanto) - Keluar dari antrean: 
+[2025-05-27 21:29:25] devinxy (devin aryanto) - Diberi prioritas: 
+[2025-05-27 21:29:34] ekishin (teller) - Logout: 
+[2025-05-27 21:30:20] dika01 (user) - Login sukses: 
+[2025-05-27 21:30:24] dika01 (dika aprilio) - Masuk ke antrean: 
+[2025-05-27 21:31:19] dika01 (dika aprilio) - Keluar dari antrean: 
+[2025-05-27 21:31:27] dika01 (user) - Logout: 
+[2025-05-27 21:31:46] giffa (admin) - Login sukses: 
+[2025-05-27 21:32:15] giffa (giffaadmin) - Hapus antrean di posisi 7: farrel mahesa (farrel99)
+[2025-05-27 21:33:32] giffa (giffaadmin) - Tukar urutan: devin aryanto (devinxy) <-> apip ramdani (apipgaming): 
+[2025-05-27 21:34:22] giffa (admin) - Logout: 
+[2025-05-27 21:34:58] joni34 (user) - Login sukses: 
+[2025-05-27 21:35:11] joni34 (joni firmansyah) - Keluar dari antrean: 
+[2025-05-27 21:35:24] joni34 (user) - Logout: 
+[2025-05-27 21:36:04] joni34 (user) - Logout: 
+[2025-05-27 22:37:36] dika01 (user) - Login sukses: 
+[2025-05-27 22:37:46] dika01 (dika aprilio) - Masuk ke antrean: 
+[2025-05-27 22:37:50] dika01 (user) - Logout: 
+[2025-05-27 22:38:02] dikateller (teller) - Login sukses: 
