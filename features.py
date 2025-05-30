@@ -1,6 +1,6 @@
 import csv, os
 from datetime import datetime # For cetak_antrian formatting
-from queue import LinkedListQueue # type: ignore # Assuming queue.py is in the same directory
+from linked_queue import LinkedListQueue # type: ignore # Assuming queue.py is in the same directory
 from logger import log_activity
 from utils import USER_DB, get_display_name
 
